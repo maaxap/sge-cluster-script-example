@@ -5,7 +5,7 @@
 #$ -l matylda4=10
 #$ -q all.q@@gpu
 #$ -pe smp 4
-#$ -l gpu=0.5,gpu_ram=48G,ram_free=4G,mem_free=4G,tmp_free=125M
+#$ -l gpu=0.5,gpu_ram=24G,ram_free=4G,mem_free=4G,tmp_free=125M
 #$ -R y
 
 ulimit -t 14400
