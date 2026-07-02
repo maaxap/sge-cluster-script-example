@@ -13,7 +13,7 @@ from vllm import LLM, SamplingParams
 
 MODEL_REPO  = "cyankiwi/gemma-4-31B-it-AWQ-4bit"
 QUANTIZATION = None
-ATTENTION_BACKEND = "TRITON_ATTN"
+ATTENTION_BACKEND = None # "TRITON_ATTN"
 
 N_CTX       = 13312
 MAX_TOKENS  = 13312

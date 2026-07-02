@@ -2,21 +2,21 @@
 #$ -N vllm_bench
 #$ -o $JOB_NAME.$JOB_ID.out
 #$ -e $JOB_NAME.$JOB_ID.err
+#$ -l matylda4=10
 #$ -q all.q@@gpu
 #$ -pe smp 4
-#$ -l gpu=2,gpu_ram=48G,ram_free=8G,mem_free=8G,tmp_free=10G
+#$ -l gpu=0.5,gpu_ram=48G,ram_free=4G,mem_free=4G,tmp_free=125M
 #$ -R y
 
-set -euo pipefail
+ulimit -t 14400
 
-ulimit -t 10800
-
-PROJECT_DIR=/mnt/minerva1/nlp-2/homes/xaparo00/workspace/projects/sge-cluster-script-example
+PROJECT_DIR=/mnt/matylda4/iaparovich/Workspace/sge-cluster-script-example
 cd "$PROJECT_DIR"
 
-# TODO: setup conda env on the server once I get access to the GPU harness
-source /home/xaparo00/miniconda3/etc/profile.d/conda.sh
+source /mnt/matylda4/iaparovich/miniconda3/etc/profile.d/conda.sh
 conda activate vllm
+
+set -euo pipefail
 
 export HF_HOME="$PROJECT_DIR/.cache/huggingface"
 export TOKENIZERS_PARALLELISM=false
